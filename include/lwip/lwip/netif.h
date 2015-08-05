@@ -207,7 +207,6 @@ struct netif {
 #if LWIP_DHCP
   /** the DHCP client state information for this netif */
   struct dhcp *dhcp;
-  struct udp_pcb *dhcps_pcb;	//dhcps
 #endif /* LWIP_DHCP */
 #if LWIP_AUTOIP
   /** the AutoIP client state information for this netif */
@@ -279,6 +278,9 @@ struct netif {
   u16_t loop_cnt_current;
 #endif /* LWIP_LOOPBACK_MAX_PBUFS */
 #endif /* ENABLE_LOOPBACK */
+#if LWIP_DHCP
+  struct udp_pcb *dhcps_pcb;	//dhcps
+#endif
 };
 
 #if LWIP_SNMP
